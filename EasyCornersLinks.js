@@ -1,8 +1,6 @@
 var EasyCornersLinks = (function() {
-    "use strict";
 
     var library = {};
-
 
 	function RotateElement (element,degree)
 	{
@@ -49,9 +47,9 @@ var EasyCornersLinks = (function() {
 		wrapperwapper.style.left = Math.floor((mm - (contentWidth /2))) + "px";
 
 
-		switch(location)
+		switch(location.toLowerCase())
 		{
-			case "TopLeft":
+			case "topleft":
 				RotateElement(wapper,45);
 				RotateElement(div,-45);
 				div.style.top = (-(newWidth/2)) + "px";
@@ -63,7 +61,7 @@ var EasyCornersLinks = (function() {
 				wrapperwapper.style.top = Math.floor(((mm - Math.floor((contentHeight /2)))  + Math.floor((newWidth/2))))+ "px";
 				break;
 
-			case "TopRight":
+			case "topright":
 				RotateElement(wapper,-45)
 				RotateElement(div,45);
 				div.style.top = (-(newWidth/2)) + "px";
@@ -75,7 +73,7 @@ var EasyCornersLinks = (function() {
 				wrapperwapper.style.top = Math.floor(((mm - Math.floor((contentHeight /2)))  + Math.floor((newWidth/2))))+ "px";
 				break;
 
-			case "BottomLeft":
+			case "bottomleft":
 				RotateElement(wapper,-45);
 				RotateElement(div,45);
 				div.style.bottom = (-(newWidth/2)) + "px";
@@ -87,7 +85,7 @@ var EasyCornersLinks = (function() {
 				wrapperwapper.style.top = (Math.floor((contentHeight /2)) *-1)+ "px";
 				break;
 
-			case "BottomRight":
+			case "bottomright":
 				RotateElement(wapper,45);
 				RotateElement(div,-45);
 				div.style.bottom = (-(newWidth/2)) + "px";
@@ -98,6 +96,10 @@ var EasyCornersLinks = (function() {
 
 				wrapperwapper.style.top = (Math.floor((contentHeight /2)) *-1)+ "px";
 				break;
+
+			default :
+				console.log("EasyCornersLinks: Unknowen location (" + location + ")" );
+				break;
 		}
 
 	}
@@ -105,7 +107,3 @@ var EasyCornersLinks = (function() {
 
     return library;
 })();
-
-if (module) {
-    module.exports = library;
-}
